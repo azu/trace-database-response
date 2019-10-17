@@ -23,7 +23,7 @@ app.use(traceExpressMiddleware());
 
 ## Example
 
-NG: Respond all mongo model
+NG: Respond mongo model directly
 
 ```js
 import mongoose from "mongoose";
