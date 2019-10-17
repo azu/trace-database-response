@@ -1,0 +1,72 @@
+{
+  "name": "trace-database-response",
+  "version": "1.0.0",
+  "description": "assert raw database response.",
+  "homepage": "https://github.com/azu/trace-database-response",
+  "bugs": {
+    "url": "https://github.com/azu/trace-database-response/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/trace-database-response.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "build": "# cross-env NODE_ENV=production tsc -p .",
+    "clean": "rimraf lib/",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha \"test/**/*.ts\"",
+    "watch": "tsc -p . --watch"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 4
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/mocha": "^5.2.7",
+    "@types/mongoose": "^5.5.21",
+    "@types/node": "^12.11.1",
+    "@types/node-fetch": "^2.5.2",
+    "body-parser": "^1.19.0",
+    "cross-env": "^6.0.3",
+    "express": "^4.17.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "mocha": "^6.2.1",
+    "mongoose": "^5.7.5",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "ts-node-test-register": "^8.0.1",
+    "typescript": "^3.6.4"
+  }
+}
