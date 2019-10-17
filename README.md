@@ -57,7 +57,6 @@ const ItemSchema = new mongoose.Schema({
 const Item = mongoose.model("item", ItemSchema);
 app.get("/item", (req, res) => {
     const name = req.query.name;
-    const responseStrategy = req.query.responseStrategy;
     if (!name) {
         return res.status(400).send("name query not defined");
     }
