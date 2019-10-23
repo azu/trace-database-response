@@ -14,11 +14,14 @@ Install with [npm](https://www.npmjs.com/):
 import mongoose from "mongoose";
 import express from "express";
 import { traceExpressMiddleware, traceMongoosePlugin } from "trace-database-response";
-// mongoose plugin
-mongoose.plugin(traceMongoosePlugin());
-// Express middleware
 const app = express();
-app.use(traceExpressMiddleware());
+// Enable tracing on development 
+if(process.env.NODE_ENV !== "production"){
+    // Express middleware
+    app.use(traceExpressMiddleware());
+    // mongoose plugin
+    mongoose.plugin(traceMongoosePlugin());
+}
 ```
 
 ## Example
