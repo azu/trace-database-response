@@ -3,6 +3,9 @@ services:
   app:
     container_name: express-mongo
     restart: always
+    # prevent exit
+    # https://stackoverflow.com/questions/38546755/docker-compose-keep-container-running
+    tty: true
     build: ./
     ports:
       - "80:3000"

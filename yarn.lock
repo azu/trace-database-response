@@ -3332,6 +3332,11 @@ touch@^3.1.0:
   dependencies:
     nopt "~1.0.10"
 
+tree-crawl@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tree-crawl/-/tree-crawl-1.0.5.tgz#0a3e2e6808756f9770c1cfbda84bc039976640a7"
+  integrity sha512-iGxq6nMcZ2PCRQOHykbhM5nMBiErA9iVfWvfatKlfAZ4O4t/46BfrbZfTcoNM6H6o6TYHQvxHtPWEnvPqH7rDA==
+
 ts-node-test-register@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/ts-node-test-register/-/ts-node-test-register-8.0.1.tgz#457c5284c2632d8e04f82378db4cb54cd6fd7901"
