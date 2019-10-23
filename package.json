@@ -1,6 +1,6 @@
 {
   "name": "trace-database-response",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "assert raw database response.",
   "homepage": "https://github.com/azu/trace-database-response",
   "bugs": {
