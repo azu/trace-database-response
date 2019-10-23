@@ -1,6 +1,16 @@
 import { Request, Response, NextFunction } from "express";
 import { traceSymbol } from "./trace-symbol";
-import crawl from "tree-crawl";
+import traverse from "traverse";
+
+const walk = <T extends object>(object: T, checker: (object: T) => void) => {
+    traverse(object).forEach(function(child) {
+        // Avoid stack overflow
+        if (this.circular) {
+            return;
+        }
+        checker(child);
+    });
+};
 
 export const traceExpressMiddleware = <T extends unknown>(options?: { handler?: (doc: T) => void }) => {
     const defaultHandler = (doc: any) => {
@@ -19,13 +29,13 @@ export const traceExpressMiddleware = <T extends unknown>(options?: { handler?: 
         };
         // @ts-ignore
         res.json = function(data) {
-            crawl(data, (value) => checkMark(value), { order: "pre" });
+            walk(data, (value) => checkMark(value));
             // @ts-ignore
             oldJson.apply(res, arguments);
         };
         // @ts-ignore
         res.jsonp = function(data) {
-            crawl(data, (value) => checkMark(value), { order: "pre" });
+            walk(data, (value) => checkMark(value));
             // @ts-ignore
             oldJsonp.apply(res, arguments);
         };
