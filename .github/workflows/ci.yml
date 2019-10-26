@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Start docker container
-        run: make up
-      - name: Run test
-        run: make test
+      - name: Up & Test
+        run:
+          - make up
+          - make test
