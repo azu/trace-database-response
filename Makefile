@@ -3,7 +3,7 @@ up:
 down:
 	docker-compose down
 test:
-	docker-compose exec app yarn test
+	docker-compose exec -T app yarn test
 shell:
 	docker-compose exec app bash
 
