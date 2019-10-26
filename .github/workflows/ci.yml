@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Up & Test
-        run:
-          - make up
-          - make test
+        run: |
+          make up
+          make test
